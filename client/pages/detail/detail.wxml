@@ -1,0 +1,6 @@
+<view class="container">
+    <view class="contan">
+        <text class="txt">{{title}}</text>
+    </view>
+    <button type="primary" bindtap="setTitle">设置title</button>
+</view>

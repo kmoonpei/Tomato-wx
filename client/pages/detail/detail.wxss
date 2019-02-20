@@ -1,0 +1,16 @@
+
+page {
+    background: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.contan{
+    width: 50%;
+    height:60rpx;
+    display: flex;
+    justify-content: center;
+}
+.txt {
+    font-size: 24rpx;
+}
