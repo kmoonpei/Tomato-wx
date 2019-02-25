@@ -1,5 +1,5 @@
 const { baseUrl } = require('./variable');
-const request = (url = '', data = {}) => {
+const requestPost = (url = '', data = {}) => {
     return new Promise((resolve, reject) => {
         wx.request({
             header: {
@@ -7,7 +7,7 @@ const request = (url = '', data = {}) => {
             },
             method: 'POST',
             url: baseUrl + url,
-            data: JSON.stringify(data),
+            data: data,
             success(res) {
                 resolve(res);
             },
@@ -17,4 +17,22 @@ const request = (url = '', data = {}) => {
         })
     })
 }
-module.exports = { request };
+const requestGet = (url = '', data = {}) => {
+    return new Promise((resolve, reject) => {
+        wx.request({
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            method: 'GET',
+            url: baseUrl + url,
+            // data: JSON.stringify(data),
+            success(res) {
+                resolve(res);
+            },
+            fail(err) {
+                reject(err)
+            }
+        })
+    })
+}
+module.exports = { requestPost, requestGet };
