@@ -6,6 +6,6 @@
     <button bindtap='fetchdata2'>fetchdata</button>
     <button bindtap='login'>login</button>
     <button bindtap='logout'>logout</button>
-
+    <button bindtap='fetchList'>fetchList</button>
     <image src="http://localhost:3000/imgs/pic1.png"></image>
 </view>

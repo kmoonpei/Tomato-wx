@@ -22,16 +22,23 @@ Page({
     },
     login() {
         request.requestPost('/user/login', { name: 'Lili', pwd: '123' }).then(data => {
-            console.log('请求成功了：', data.data);
+            console.log(data.data);
         }).catch(err => {
             console.log(err)
         })
     },
     logout() {
         request.requestGet('/user/logout').then(data => {
-            console.log('请求成功了：', data.data);
+            console.log(data.data);
         }).catch(err => {
             console.log(err)
         })
     },
+    fetchList() {
+        request.requestPost('/user/order_list', { type: 1 }).then(data => {
+            console.log(data.data);
+        }).catch(err => {
+            console.log(err)
+        })
+    }
 })
