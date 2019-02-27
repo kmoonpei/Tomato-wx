@@ -129,3 +129,9 @@ page {
     line-height: 36rpx;
     word-break: break-all;
 }
+.authlogin {
+    position: absolute;
+    bottom: 0;
+    /* height:100rpx; */
+}
+

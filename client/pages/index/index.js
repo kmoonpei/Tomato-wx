@@ -2,15 +2,47 @@
 var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
+var request = require('../../utils/http')
 
 Page({
+
     data: {
         userInfo: {},
         logged: false,
         takeSession: false,
-        requestResult: ''
-    },
+        requestResult: '',
 
+        canIUse: wx.canIUse('button.open-type.getUserInfo')
+    },
+    onLoad: function () {
+        wx.login({
+            success(res) {
+                if (res.code) {
+                    request.requestPost('/user/loginWx', { code: res.code }).then(data => {
+                        console.log(data.data);
+                        wx.getSetting({
+                            success(res) {
+                                if (res.authSetting['scope.userInfo']) {
+                                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+                                    wx.getUserInfo({
+                                        success(res) {
+                                            console.log(res.userInfo)
+                                        }
+                                    })
+                                }
+                            }
+                        })
+
+                    })
+                } else {
+                    console.log('登录失败', res.errMsg)
+                }
+            }
+        })
+    },
+    bindGetUserInfo(e) {
+        console.log(e.detail.userInfo)
+    },
     // 用户登录示例
     bindGetUserInfo: function () {
         if (this.data.logged) return
@@ -62,14 +94,14 @@ Page({
         var options = {
             url: config.service.requestUrl,
             login: true,
-            success (result) {
+            success(result) {
                 util.showSuccess('请求成功完成')
                 console.log('request success', result)
                 that.setData({
                     requestResult: JSON.stringify(result.data)
                 })
             },
-            fail (error) {
+            fail(error) {
                 util.showModel('请求失败', error);
                 console.log('request fail', error);
             }
@@ -90,7 +122,7 @@ Page({
             count: 1,
             sizeType: ['compressed'],
             sourceType: ['album', 'camera'],
-            success: function(res){
+            success: function (res) {
                 util.showBusy('正在上传')
                 var filePath = res.tempFilePaths[0]
 
@@ -100,7 +132,7 @@ Page({
                     filePath: filePath,
                     name: 'file',
 
-                    success: function(res){
+                    success: function (res) {
                         util.showSuccess('上传图片成功')
                         console.log(res)
                         res = JSON.parse(res.data)
@@ -110,13 +142,13 @@ Page({
                         })
                     },
 
-                    fail: function(e) {
+                    fail: function (e) {
                         util.showModel('上传图片失败')
                     }
                 })
 
             },
-            fail: function(e) {
+            fail: function (e) {
                 console.error(e)
             }
         })
