@@ -1,0 +1,22 @@
+.image1 {
+    width:120rpx;
+    height:120rpx;
+    border-radius:50% 50%;
+    margin: 80rpx 0 40rpx 0;
+    -webkit-border-radius:50% 50%;
+    -moz-border-radius:50% 50%;
+    -ms-border-radius:50% 50%;
+    -o-border-radius:50% 50%;
+}
+.title {
+    font-size: 36rpx;
+}
+.hint {
+    font-size: 24rpx;
+    color: #aaa;
+    margin: 80rpx 60rpx 0 60rpx;
+}
+.btn_auth {
+    width:50%;
+    margin:80rpx;
+}

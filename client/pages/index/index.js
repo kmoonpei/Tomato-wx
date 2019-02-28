@@ -12,37 +12,48 @@ Page({
         takeSession: false,
         requestResult: '',
 
-        canIUse: wx.canIUse('button.open-type.getUserInfo')
+
     },
-    onLoad: function () {
-        wx.login({
+    onShow: function () {
+        //检查本地是否存在skey
+        wx.getStorage({
+            key: 'skey',
             success(res) {
-                if (res.code) {
-                    request.requestPost('/user/loginWx', { code: res.code }).then(data => {
-                        console.log(data.data);
-                        wx.getSetting({
-                            success(res) {
-                                if (res.authSetting['scope.userInfo']) {
-                                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-                                    wx.getUserInfo({
-                                        success(res) {
-                                            console.log(res.userInfo)
-                                        }
-                                    })
-                                }
+                console.log("获取本地skey", res);
+                if(!res.data){
+                    wx.navigateTo({
+                        url: '../authorization/authorization',
+                        success: function () {
+
+                        }
+                    })
+                }
+                wx.checkSession({//检查session_key是否有效
+                    success() {
+         
+                    },
+                    fail() {
+                        wx.navigateTo({
+                            url: '../authorization/authorization',
+                            success: function () {
+
                             }
                         })
+                    }
+                })
+            },
+            fail(err) {
+                console.log("err:", err);
+                wx.navigateTo({
+                    url: '../authorization/authorization',
+                    success: function () {
 
-                    })
-                } else {
-                    console.log('登录失败', res.errMsg)
-                }
+                    }
+                })
             }
         })
     },
-    bindGetUserInfo(e) {
-        console.log(e.detail.userInfo)
-    },
+
     // 用户登录示例
     bindGetUserInfo: function () {
         if (this.data.logged) return
