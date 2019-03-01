@@ -1,3 +1,4 @@
+
 {
   "pages": [
     "pages/index/index",
@@ -5,11 +6,39 @@
     "pages/detail/detail",
     "pages/authorization/authorization"
   ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "color": "#F6F6F6",
+        "selectedColor":"#F6F6F6",
+        "iconPath": "imgs/index_un.png",
+        "selectedIconPath": "imgs/index.png"
+      },
+      {
+        "pagePath": "pages/addCgi/addCgi",
+        "text": "发布",
+        "color": "#F6F6F6",
+        "selectedColor":"#F6F6F6",
+        "iconPath": "imgs/fabu_un.png",
+        "selectedIconPath": "imgs/fabu.png"
+      },
+      {
+        "pagePath": "pages/detail/detail",
+        "text": "我的",
+        "color": "#F6F6F6",
+        "selectedColor":"#F6F6F6",
+        "iconPath": "imgs/me_un.png",
+        "selectedIconPath": "imgs/me.png"
+      }
+    ]
+  },
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#efd91b",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "TomatoClock",
+    "navigationBarBackgroundColor": "#efd91b",
+    "navigationBarTitleText": "菜谱",
     "navigationBarTextStyle": "black"
   }
 }

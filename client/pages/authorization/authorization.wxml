@@ -2,5 +2,33 @@
     <image class="image1" src="../../imgs/pic4.png" mode="aspectFit"></image>
     <p class="title">番茄时钟工作法</p>
     <p class="hint">您暂未获取微信授权，将无法正常使用小程序的功能~如需正常使用，请点击“授权登录”按钮，打开头像、昵称等信息的授权。</p>
-    <button class="btn_auth" bindtap='auth' type="primary">授权登录</button>
+    <button class="btn_auth" type="primary" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+    </button>
+    <!-- <view class="modal">
+        <view class="modal_cont">
+            <view class="modal_tit_wrap">
+                <image class="modal_img" src="../../imgs/pic4.png"></image>
+                <span class="modal_tit">番茄时钟工作法</span>
+                <span class="modal_tit1">申请</span>
+            </view>
+            <p class="modal_hint">获取您的昵称、头像、地区及性别</p>
+            <view class="modal_info">
+
+                <open-data type="userAvatarUrl" class="modal_avatar"></open-data>
+                <view>
+                    <p class="modal_info_hint">微信个人信息</p>
+
+                    <open-data type="userNickName" class="modal_nickname"></open-data>
+                </view>
+                <image class="modal_sure" />
+            </view>
+            <view class="modal_btns">
+                <button class="modal_btn_cancel">取消</button>
+                <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="modal_btn_sure" type="primary">
+                    允许
+                </button>
+            </view>
+        </view>
+    </view> -->
 </view>
