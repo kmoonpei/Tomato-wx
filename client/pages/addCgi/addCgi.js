@@ -5,45 +5,14 @@ var util = require('../../utils/util.js')
 
 Page({
     data: {
-        requestResult: '',
-        canIUseClipboard: wx.canIUse('setClipboardData')
+        material: [{ id: 0 }, { id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }]
     },
-
-    testCgi: function () {
-        util.showBusy('请求中...')
-        var that = this
-        qcloud.request({
-            url: `${config.service.host}/weapp/demo`,
-            login: false,
-            success (result) {
-                util.showSuccess('请求成功完成')
-                that.setData({
-                    requestResult: JSON.stringify(result.data)
-                })
-            },
-            fail (error) {
-                util.showModel('请求失败', error);
-                console.log('request fail', error);
-            }
-        })
-    },
-
-    copyCode: function (e) {
-        var codeId = e.target.dataset.codeId
-        wx.setClipboardData({
-            data: code[codeId - 1],
-            success: function () {
-                util.showSuccess('复制成功')
-            }
-        })
+    addnum() {
+        let old_data = this.data.material;
+        let new_obj = { id: old_data[old_data.length - 1].id + 1 };
+        old_data.push(new_obj);
+        this.setData({ material: old_data });
     }
+
 })
 
-var code = [
-`router.get('/demo', controllers.demo)`,
-`module.exports = ctx => {
-    ctx.state.data = {
-        msg: 'Hello World'
-    }
-}`
-]

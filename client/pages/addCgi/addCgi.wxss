@@ -5,97 +5,68 @@ page {
     flex-direction: column;
     justify-content: flex-start;
 }
-
-.list {
-    margin-top: 40rpx;
-    height: auto;
-    width: 100%;
-    background: #FFF;
-    padding: 0 0 0 40rpx;
-    border: 1px solid rgba(0, 0, 0, .1);
-    border-left: none;
-    border-right: none;
-    transition: all 300ms ease;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    box-sizing: border-box;
-}
-
-.list-item {
-    width: 100%;
-    padding: 0;
-    line-height: 104rpx;
-    font-size: 34rpx;
-    color: #007AFF;
-    border-top: 1px solid rgba(0, 0, 0, .1);
+.caipu_name_wp {
     display: flex;
     flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-    box-sizing: border-box;
+    margin: 5rpx;
+    align-items: center;
+    border-bottom: #aaa solid 1rpx;
 }
-
-.list-item:first-child {
-    border-top: none;
-}
-
-.request-text {
-    color: #222;
-    padding: 20rpx 0;
-    font-size: 24rpx;
-    line-height: 36rpx;
-    word-break: break-all;
-}
-
-.guide {
-    width: 100%;
-    padding: 40rpx;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-}
-
-.guide .headline {
-    font-size: 34rpx;
-    font-weight: bold;
-    color: #555;
-    line-height: 40rpx;
-}
-
-.guide .p {
-    margin-top: 20rpx;
-    font-size: 28rpx;
-    line-height: 36rpx;
+.caipu_name_lab {
+    font-size: 32rpx;
     color: #666;
 }
-
-.guide .code {
-    margin-top: 20rpx;
-    background: rgba(0, 0, 0, .8);
-    padding: 20rpx;
-    font-size: 28rpx;
-    line-height: 36rpx;
-    border-radius: 6rpx;
-    color: #FFF;
+.caipu_name_input {
+    font-size: 32rpx;
+    color: #333;
 }
-
-.guide .image1 {
-    margin-top: 20rpx;
-    max-width: 100%;
-    width: 356px;
-    height: 47px;
+.caipu_name_addimg {
+    width:80rpx;
+    height: 80rpx;
+    margin: 20rpx;
 }
-
-.guide .image2 {
-    margin-top: 20rpx;
-    width: 264px;
-    height: 100px;
+.caipu_name_input_details {
+    width:80%;
+    height:150rpx;
+    border: #aaa 1rpx solid;
+    margin: 10rpx;
+    padding: 10rpx;
+    font-size: 32rpx;
 }
-
-.guide .copyBtn {
-    width: 180rpx;
-    font-size: 20rpx;
-    margin-top: 16rpx;
-    margin-left: 0;
+.material_tit_wp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.material_tit {
+    flex:1;
+    font-size: 32rpx;
+    color: #666;
+    text-align: center;
+}
+.add_material_wp {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-Top: #aaa 1rpx solid;
+    border-bottom: #aaa 1rpx solid;
+    margin-top: -1rpx;
+}
+.add_material_wp1 {
+    flex:1;
+    height: 50rpx;
+    padding-left: 5rpx;
+}
+.add_material_wp1:first-child {
+    border-right: #aaa 1rpx solid;
+}
+.add_material_wp input {
+    font-size: 32rpx;
+    color: #666;
+}
+.add_txt {
+    color: rgb(5, 74, 201);
+    font-size: 32rpx;
+    text-align: right;
 }
