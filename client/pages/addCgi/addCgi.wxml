@@ -17,5 +17,6 @@
     <view class="add_material_wp1">
         <input class="caipu_name_input" type="text" placeholder="" maxlength="80" focus="true" bindinput="" bindfocus="" bindblur="" bindconfirm=""></input>
     </view>
+    <image class="delete_item" src="../../imgs/dlet.png" bindtap="dletMaterialItem"/>
 </view>
 <span class="add_txt" bindtap="addnum">新增</span>

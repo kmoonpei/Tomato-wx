@@ -20,6 +20,11 @@ page {
     font-size: 32rpx;
     color: #333;
 }
+.delete_item {
+    width: 40rpx;
+    height: 40rpx;
+    margin: 10rpx;
+}
 .caipu_name_addimg {
     width:80rpx;
     height: 80rpx;
