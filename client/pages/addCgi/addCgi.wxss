@@ -4,6 +4,14 @@ page {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
+}
+.wap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width:95%;
+
 }
 .caipu_name_wp {
     display: flex;
@@ -26,8 +34,13 @@ page {
     margin: 10rpx;
 }
 .caipu_name_addimg {
-    width:80rpx;
+    width: 80rpx;
     height: 80rpx;
+    margin: 20rpx;
+}
+.cover_img {
+    width: 160rpx;
+    height: 160rpx;
     margin: 20rpx;
 }
 .caipu_name_input_details {
@@ -74,4 +87,11 @@ page {
     color: rgb(5, 74, 201);
     font-size: 32rpx;
     text-align: right;
+}
+.publish_btn {
+    width: 60%;
+    height: 80rpx;
+    color: #fff;
+    background-color: #efd91b;
+    margin-top: 20rpx;
 }
