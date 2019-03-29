@@ -30,5 +30,5 @@
     <input class="caipu_name_input" value="{{item.describe}}" type="text" placeholder="请输入步骤描述" maxlength="140" focus="true" id="{{item.tag}}" bindinput="itemDescribeInput" ></input>
 </view>
 <text class="add_txt" catchtap="addstep">新增</text>
-<button class="publish_btn">发布</button>
+<button class="publish_btn" catch:tap="publish">发布</button>
 </view>
