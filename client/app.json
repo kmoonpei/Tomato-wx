@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/addCgi/addCgi",
     "pages/detail/detail",
-    "pages/authorization/authorization"
+    "pages/authorization/authorization",
+    "pages/search/search"
   ],
   "tabBar": {
     "list": [

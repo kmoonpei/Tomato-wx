@@ -37,34 +37,30 @@ page {
     font-size: 24rpx;
     color: #000;
 }
-.item_wp {
-    width:100%;
-    padding: 6%;
-    border-bottom: #ccc 1rpx solid;
+.top_wp {
+    width:98%;
+    padding: 2%;
+    
 }
-.cover_img {
-    width:88%;
-    border-radius: 5%;
-    -webkit-border-radius: 5%;
-    -moz-border-radius: 5%;
-    -ms-border-radius: 5%;
-    -o-border-radius: 5%;
-}
-.title_wp {
+.tit_wp {
     display: flex;
-    width:88%;
-    height:80rpx;
     flex-direction: row;
     align-items: center;
 }
-.title {
+.tit_txt {
     flex:1;
-    font-size: 38rpx;
-    font-weight: 700;
+    font-size: 24rpx;
     color:#333;
 }
-.collec {
-    font-size: 28rpx;
-    color:#bbb;
-    justify-items: flex-end;
+.det_icon {
+    width:30rpx;
+    height:30rpx;
+}
+.item_wp {
+    flex-wrap: wrap;
+
+}
+.item {
+    width: 25%;
+    margin: 1%;
 }

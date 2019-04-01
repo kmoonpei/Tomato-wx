@@ -2,9 +2,16 @@
 <!-- <view class="container"> -->
 <!-- 用户登录测试 -->
 <view class="search_wp">
-    <view class="search_in">
+    <view class="search_in" bind:tap="goSearch">
         <image class="search_icon" src="../../imgs/search.png"></image>
         <span>搜索菜谱、食谱</span>
+    </view>
+</view>
+<view wx:for="{{list}}" wx:key="item.id" class="item_wp">
+    <image src="{{item.tempFilePaths}}" class="cover_img"/>
+    <view class="title_wp">
+        <text class="title">{{item.foodName}}</text>
+        <text class="collec">299收藏</text>
     </view>
 </view>
 <!-- </view> -->

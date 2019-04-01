@@ -1,0 +1,21 @@
+<!-- <view class="container"> -->
+<view class="search_wp">
+    <view class="search_in">
+        <image class="search_icon" src="../../imgs/search.png"></image>
+        <span>搜索菜谱、食谱</span>
+    </view>
+</view>
+<view class="top_wp">
+    <view class="tit_wp">
+        <text class="tit_txt">搜索记录</text>
+        <image class="det_icon" src="../../imgs/dlet.png" />
+    </view>
+    <view class="item_wp">
+        <view class="item" wx:for="{{searched}}">{{item}}</view>
+    </view>
+</view>
+<text class="tit_txt">搜索热点</text>
+<view class="item_wp">
+    <view class="item" wx:for="{{hot_search}}">{{item}}</view>
+</view>
+<!-- </view> -->

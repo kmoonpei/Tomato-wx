@@ -174,7 +174,7 @@ Page({
         http.requestPost('/user/createcook', payload)
             .then(data => {
                 if (data.code === 0) {
-                    alert(data.msg)
+                    console.log(data.msg)
                 }
             })
             .catch(err => {
