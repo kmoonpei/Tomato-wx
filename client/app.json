@@ -5,7 +5,8 @@
     "pages/addCgi/addCgi",
     "pages/detail/detail",
     "pages/authorization/authorization",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/caipu.detail/caipu.detail"
   ],
   "tabBar": {
     "list": [

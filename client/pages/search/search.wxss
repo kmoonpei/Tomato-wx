@@ -6,61 +6,120 @@ page {
     justify-content: flex-start;
 }
 .search_wp {
-    width:100%;
-    height:80rpx;
+    height:100rpx;
     background-color: #efd91b;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.search_in {
-    width:85%;
-    height:50rpx;
-    border: #000 1rpx solid;
-    border-radius: 25rpx;
-    -webkit-border-radius: 25rpx;
-    -moz-border-radius: 25rpx;
-    -ms-border-radius: 25rpx;
-    -o-border-radius: 25rpx;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+.search_in {
+    /* width:80%; */
+    flex: 8;
+    height:70rpx;
+    border: #000 1rpx solid;
+    border-radius: 35rpx;
+    -webkit-border-radius: 35rpx;
+    -moz-border-radius: 35rpx;
+    -ms-border-radius: 35rpx;
+    -o-border-radius: 35rpx;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
     background-color: #efd91b;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 .search_icon {
-    width: 20rpx;
-    height:20rpx;
-    margin-left: 20rpx;
-    margin-right: 20rpx;
+    width: 40rpx;
+    height:40rpx;
+    margin-right: 10rpx;
 }
-.search_wp span {
-    font-size: 24rpx;
-    color: #000;
+.search_input {
+    flex:1;
+    height:70rpx;
+    color: #333;
+    font-size: 32rpx;
+}
+.delt_icon {
+    width: 40rpx;
+    height:40rpx;
+}
+.search_txt {
+    flex:2;
+    line-height: 70rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color:#333;
 }
 .top_wp {
-    width:98%;
     padding: 2%;
-    
+    border-bottom: #ccc 1rpx solid;
 }
 .tit_wp {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    height: 70rpx;
 }
 .tit_txt {
-    flex:1;
-    font-size: 24rpx;
+    /* flex:1; */
+    line-height: 70rpx;
+    text-align: center;
+    font-size: 36rpx;
     color:#333;
 }
 .det_icon {
-    width:30rpx;
-    height:30rpx;
+    width:40rpx;
+    height:40rpx;
 }
 .item_wp {
+    display: flex;
     flex-wrap: wrap;
 
 }
 .item {
-    width: 25%;
+    width: 22%;
     margin: 1%;
+    border: #ccc 1rpx solid;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30rpx;
+
+}
+.list_item_wp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2%;
+    background-color: #fff;
+    border-bottom: #eee 1rpx slid;
+}
+.list_img {
+    width: 220rpx;
+    height: 220rpx;
+}
+.info_wp {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:220rpx;
+    margin-left: 2%;
+}
+.foodname {
+    flex:1;
+    font-size: 36rpx;
+    color: #333;
+    font-weight: 700;
+}
+.info_txt {
+    flex:1;
+    font-size: 28rpx;
+    color: #999;
 }

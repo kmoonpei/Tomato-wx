@@ -7,7 +7,7 @@
         <span>搜索菜谱、食谱</span>
     </view>
 </view>
-<view wx:for="{{list}}" wx:key="item.id" class="item_wp">
+<view wx:for="{{list}}" wx:key="item.id" class="item_wp" id="{{item.id}}" bind:tap="goDetail">
     <image src="{{item.tempFilePaths}}" class="cover_img"/>
     <view class="title_wp">
         <text class="title">{{item.foodName}}</text>

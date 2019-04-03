@@ -69,6 +69,10 @@ Page({
     },
     goSearch() {
         wx.navigateTo({ url: '../search/search' })
+    },
+    goDetail(e) {
+        console.log('id:', e)
+        wx.navigateTo({ url: `../caipu.detail/caipu.detail?id=${e.currentTarget.id}` })
     }
 
 })

@@ -2,20 +2,34 @@
 <view class="search_wp">
     <view class="search_in">
         <image class="search_icon" src="../../imgs/search.png"></image>
-        <span>搜索菜谱、食谱</span>
+        <input class="search_input" value="{{keyword}}" bindinput="keywordInput" type="text" placeholder="搜菜谱，食谱" />
+        <image wx:if="{{delt_keyword_icon}}" bind:tap="deletKeyword" class="delt_icon" src="../../imgs/dlet.png" />
+    </view>
+    <text wx:if="{{delt_keyword_icon}}" bind:tap="searchHandle" class="search_txt">搜索</text>
+</view>
+<view wx:if="{{list.length==0}}">
+    <view wx:if="{{searched.length>0}}" class="top_wp">
+        <view class="tit_wp">
+            <text class="tit_txt">搜索记录</text>
+            <image class="det_icon" src="../../imgs/dlet.png" bind:tap="deltSearched" />
+        </view>
+        <view class="item_wp">
+            <view class="item" wx:for="{{searched}}" wx:key="item" id="{{item}}" bind:tap="searchHandle">{{item}}</view>
+        </view>
+    </view>
+    <view class="top_wp">
+        <text class="tit_txt">搜索热点</text>
+        <view class="item_wp">
+            <view class="item" wx:for="{{hot_search}}" wx:key="item" id="{{item}}" bind:tap="searchHandle">{{item}}</view>
+        </view>
     </view>
 </view>
-<view class="top_wp">
-    <view class="tit_wp">
-        <text class="tit_txt">搜索记录</text>
-        <image class="det_icon" src="../../imgs/dlet.png" />
+<view wx:for="{{list}}" wx:key="item.id" class="list_item_wp">
+    <image src="{{item.tempFilePaths}}" class="list_img" />
+    <view class="info_wp">
+        <text class="foodname">{{item.foodName}}</text>
+        <text class="info_txt">{{item.material}}</text>
+        <text class="info_txt">2990收藏</text>
     </view>
-    <view class="item_wp">
-        <view class="item" wx:for="{{searched}}">{{item}}</view>
-    </view>
-</view>
-<text class="tit_txt">搜索热点</text>
-<view class="item_wp">
-    <view class="item" wx:for="{{hot_search}}">{{item}}</view>
 </view>
 <!-- </view> -->

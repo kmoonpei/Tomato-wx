@@ -1,0 +1,17 @@
+<view>
+    <text>四喜饺子</text>
+    <text>2099收藏</text>
+    <image src="../../imgs/pic2.png"/>
+    <text>就撒破房间地痞撒娇的房间哦爱金佛家扫地机法地附近几点睡佛表激动死</text>
+    <button bind:tap="collect">收藏</button>
+    <text>用料</text>
+    <view>
+        <text>熟鸡蛋</text>
+        <text>一个</text>
+    </view>
+    <text>做法</text>
+    <view>
+        <image src="../../imgs/pic2.png" />
+        <text>大键盘佛速度符四大皆空甲方电视剧覅</text>
+    </view>
+</view>
