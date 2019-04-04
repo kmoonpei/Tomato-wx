@@ -3,5 +3,71 @@ page {
     background: #F6F6F6;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    padding: 3%;
 }
+.name {
+    font-size: 32rpx;
+    color:#333;
+    font-weight: 700;
+}
+.collec {
+    font-size: 24rpx;
+    color:#aaa;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+.cover_img {
+    width:94%;
+}
+.info_txt {
+    font-size: 24rpx;
+    color:#666;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+.collec_btn {
+    width: 20%;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 28rpx;
+    text-align: center;
+    background-color: #6cb63b;
+    color:#fff;
+    align-self: center;
+}
+.tit_txt {
+    font-size: 28rpx;
+    font-weight: 600;
+    color:#333;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+.material_item {
+    width: 94%;
+    height: 80rpx;
+    border-bottom: #eee 1rpx solid;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.item_txt {
+    flex:1;
+    font-size: 28rpx;
+    color: #333;
+}
+.step_item_wp {
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+}
+.step_img {
+    width: 94%;
+}
+.step_txt {
+    font-size: 28rpx;
+    color: #333;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+

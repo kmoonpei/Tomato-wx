@@ -66,10 +66,19 @@ Page({
         http.requestPost('/caipu/index', payload)
             .then(data => {
                 if (data.data.code === 0) {
-                    this.setData({ list: data.data.data })
+                    let dat = data.data.data;
+                    dat = dat.map(itm=>{
+                        let arr = itm.material.map((it)=>{return it.name});
+                        itm.material_string = arr.join(',');
+                        return itm
+                    })
+                    this.setData({ list: dat })
                 }
             }).catch(err => {
                 console.log(err)
             })
+    },
+    goDetail(e){
+        wx.navigateTo({ url: `../caipu.detail/caipu.detail?id=${e.currentTarget.id}` })
     }
 })

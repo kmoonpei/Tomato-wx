@@ -91,6 +91,8 @@ page {
 .publish_btn {
     width: 60%;
     height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
     color: #fff;
     background-color: #efd91b;
     margin-top: 20rpx;
