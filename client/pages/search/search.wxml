@@ -25,7 +25,7 @@
     </view>
 </view>
 <view wx:for="{{list}}" wx:key="item.id" class="list_item_wp" id="{{item.id}}" bind:tap="goDetail">
-    <image src="{{item.tempFilePaths}}" class="list_img" />
+    <image src="{{item.tempFilePaths}}" class="list_img"  mode="center"/>
     <view class="info_wp">
         <text class="foodname">{{item.foodName}}</text>
         <text class="info_txt">{{item.material_string}}</text>

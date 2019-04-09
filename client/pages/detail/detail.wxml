@@ -1,11 +1,10 @@
-<view class="container">
-    <view class="contan">
-        <text class="txt">{{title}}</text>
-    </view>
-    <button type="primary" bindtap="setTitle">设置title</button>
-    <button bindtap='fetchdata2'>fetchdata</button>
-    <button bindtap='login'>login</button>
-    <button bindtap='logout'>logout</button>
-    <button bindtap='fetchList'>fetchList</button>
-    <image src="http://localhost:3000/imgs/pic1.png"></image>
+<view class="top">
+    <image class="top_bg" src="{{userInfo.avatarUrl}}" />
+    <image class="avatar" src="{{userInfo.avatarUrl}}" />
+    <text class="nickname">{{userInfo.nickName}}</text>
+</view>
+<view wx:for="{{items}}" class="item_wp">
+    <image class="icon" src="{{item.icon}}" />
+    <text class="item_txt">{{item.tit}}</text>
+    <image class="arrow" src="../../imgs/arrows.png" />
 </view>

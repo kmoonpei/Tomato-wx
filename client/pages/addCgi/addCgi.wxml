@@ -1,34 +1,34 @@
 <view class="wap">
-<view class="caipu_name_wp">
-    <text class="caipu_name_lab">菜肴名称：</text>
-    <input class="caipu_name_input" type="text" placeholder="请输入名称" value="{{foodName}}" maxlength="140" focus="true" bindinput="nameInput" ></input>
-</view>
-<text class="caipu_name_lab">添加菜品封面图：</text>
-<image wx:if="{{!tempFilePaths}}" class="caipu_name_addimg" src="../../imgs/add.png" catch:tap="addCoverImg" />
-<image wx:else class="cover_img" src="{{tempFilePaths}}" catch:tap="addCoverImg" />
-<text class="caipu_name_lab">添加菜品的描述（150字）：</text>
-<textarea class="caipu_name_input_details" type="text" placeholder="请输入菜品描述" value="{{foodDescribe}}" maxlength="150" focus="true" bindinput="foodDescribeInput" ></textarea>
-<view class="material_tit_wp">
-    <text class="material_tit">食材</text>
-    <text class="material_tit">用量</text>
-</view>
-<view wx:for="{{material}}" wx:key="id" class="add_material_wp">
-    <view class="add_material_wp1">
-        <input class="caipu_name_input" type="text" value="{{item.name}}" id="{{item.id}}" maxlength="80" focus="true" bindinput="itemNameInput"></input>
+    <view class="caipu_name_wp">
+        <text class="caipu_name_lab">菜肴名称：</text>
+        <input class="caipu_name_input" type="text" placeholder="请输入名称" value="{{foodName}}" maxlength="140" focus="true" bindinput="nameInput"></input>
     </view>
-    <view class="add_material_wp1">
-        <input class="caipu_name_input" type="text" value="{{ite.dosage}}" id="{{item.id}}" maxlength="80" focus="true" bindinput="itemDosageInput"></input>
+    <text class="caipu_name_lab">添加菜品封面图：</text>
+    <image wx:if="{{!tempFilePaths}}" class="caipu_name_addimg" src="../../imgs/add.png" catch:tap="addCoverImg" />
+    <image wx:else class="cover_img" src="{{tempFilePaths}}" catch:tap="addCoverImg" mode="center" />
+    <text class="caipu_name_lab">添加菜品的描述（150字）：</text>
+    <textarea class="caipu_name_input_details" type="text" placeholder="请输入菜品描述" value="{{foodDescribe}}" maxlength="150" focus="true" bindinput="foodDescribeInput"></textarea>
+    <view class="material_tit_wp">
+        <text class="material_tit">食材</text>
+        <text class="material_tit">用量</text>
     </view>
-    <image class="delete_item" src="../../imgs/dlet.png" id="{{item.id}}" data-item="{{item}}" catchtap="dletMaterialItem" />
-</view>
-<text class="add_txt" catchtap="addnum">新增</text>
-<text class="caipu_name_lab">做法：</text>
-<view wx:for="{{steps}}" wx:key="tag">
-    <text>{{item.tag}}.</text>
-    <image wx:if="{{!item.img}}" class="caipu_name_addimg" data-item="{{item}}" src="../../imgs/add.png" catch:tap="addstepImg" />
-    <image wx:else class="cover_img" src="{{item.img}}" data-item="{{item}}" catch:tap="addstepImg" />
-    <input class="caipu_name_input" value="{{item.describe}}" type="text" placeholder="请输入步骤描述" maxlength="140" focus="true" id="{{item.tag}}" bindinput="itemDescribeInput" ></input>
-</view>
-<text class="add_txt" catchtap="addstep">新增</text>
-<button class="publish_btn" catch:tap="publish">发布</button>
+    <view wx:for="{{material}}" wx:key="id" class="add_material_wp">
+        <view class="add_material_wp1">
+            <input class="caipu_name_input" type="text" value="{{item.name}}" id="{{item.id}}" maxlength="80" focus="true" bindinput="itemNameInput"></input>
+        </view>
+        <view class="add_material_wp1">
+            <input class="caipu_name_input" type="text" value="{{ite.dosage}}" id="{{item.id}}" maxlength="80" focus="true" bindinput="itemDosageInput"></input>
+        </view>
+        <image class="delete_item" src="../../imgs/dlet.png" id="{{item.id}}" data-item="{{item}}" catchtap="dletMaterialItem" />
+    </view>
+    <text class="add_txt" catchtap="addnum">新增</text>
+    <text class="caipu_name_lab">做法：</text>
+    <view wx:for="{{steps}}" wx:key="tag">
+        <text>{{item.tag}}.</text>
+        <image wx:if="{{!item.img}}" class="caipu_name_addimg" data-item="{{item}}" src="../../imgs/add.png" catch:tap="addstepImg" />
+        <image wx:else class="cover_img" src="{{item.img}}" data-item="{{item}}" catch:tap="addstepImg" mode="center" />
+        <input class="caipu_name_input" value="{{item.describe}}" type="text" placeholder="请输入步骤描述" maxlength="140" focus="true" id="{{item.tag}}" bindinput="itemDescribeInput"></input>
+    </view>
+    <text class="add_txt" catchtap="addstep">新增</text>
+    <button class="publish_btn" catch:tap="publish">发布</button>
 </view>

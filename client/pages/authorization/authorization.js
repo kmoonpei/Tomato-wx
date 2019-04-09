@@ -16,12 +16,22 @@ Page({
         console.log(e.detail.userInfo)
         wx.login({
             success(res) {
+                // console.log('wx login info:',res)
+                let payload = {
+                    code: res.code,
+                    nickName: e.detail.userInfo.nickName,
+                    avatarUrl: e.detail.userInfo.avatarUrl
+                }
                 if (res.code) {
-                    request.requestPost('/user/loginWx', { code: res.code }).then(data => {
+                    request.requestPost('/user/loginWx', payload).then(data => {
                         console.log(data.data);
                         wx.setStorage({
                             key: 'skey',
                             data: data.data.data.skey
+                        })
+                        wx.setStorage({
+                            key: 'uid',
+                            data: data.data.data.uid
                         })
                         wx.showToast({
                             title: '登录成功',
@@ -48,6 +58,12 @@ Page({
                         //     }
                         // })
 
+                    }).catch(err => {
+                        wx.showToast({
+                            title: '登录异常',
+                            icon: 'none',
+                            duration: 3000,
+                        })
                     })
                 } else {
                     console.log('登录失败', res.errMsg)

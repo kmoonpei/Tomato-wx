@@ -39,5 +39,16 @@ var showModel = (title, content) => {
   })
 }
 
+const promisify = original => {
+    return function (opt) {
+        return new Promise((resolve, reject) => {
+            opt = Object.assign({
+                succes: resolve,
+                fail: reject
+            }, opt)
+            original(opt)
+        })
+    }
+}
 
-module.exports = { formatTime, showBusy, showSuccess, showModel }
+module.exports = { formatTime, showBusy, showSuccess, showModel,promisify }

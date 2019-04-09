@@ -1,44 +1,26 @@
 const request = require('../../utils/http');
 Page({
     data: {
-        title: '详情',
+        userInfo: {},
+        items: [
+            { icon: '../../imgs/myworks.png', tit: '我的发布' },
+            { icon: '../../imgs/love.png', tit: '我的收藏' }]
     },
-    setTitle() {
-        this.setData({ title: "new title" });
-    },
-    fetchdata() {
-        request.requestGet('/user').then(data => {
-            console.log('请求成功了：', data)
-        }).catch(err => {
-            console.log(err)
-        })
-    },
-    fetchdata2() {
-        request.requestPost('/user/data1', { type: 1 }).then(data => {
-            console.log('请求成功了：', data.data);
-        }).catch(err => {
-            console.log(err)
-        })
-    },
-    login() {
-        request.requestPost('/user/login', { name: 'Lili', pwd: '123' }).then(data => {
-            console.log(data.data);
-        }).catch(err => {
-            console.log(err)
-        })
-    },
-    logout() {
-        request.requestGet('/user/logout').then(data => {
-            console.log(data.data);
-        }).catch(err => {
-            console.log(err)
-        })
-    },
-    fetchList() {
-        request.requestPost('/user/order_list', { type: 1 }).then(data => {
-            console.log(data.data);
-        }).catch(err => {
-            console.log(err)
-        })
+    onReady() {
+        let payload = {};
+        let _this = this;
+        wx.getStorage({
+            key: 'uid',
+            success: (result) => {
+                payload.uid = result.data;
+                request.requestPost('/user/info', payload).then(data => {
+                    console.log('info:', data)
+                    if (data.data.code === 0) {
+                        _this.setData({ userInfo: data.data.data });
+                    }
+                })
+            },
+        });
+
     }
 })
