@@ -3,10 +3,10 @@ var qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('../../config')
 var util = require('../../utils/util.js')
 var http = require('../../utils/http')
-var baseUrl = require('../../utils/variable').baseUrl
 
 Page({
     data: {
+        uid: null,
         foodName: "",
         tempFilePaths: "", //封面图
         foodDescribe: "", //菜品描述
@@ -32,6 +32,15 @@ Page({
                 describe: ''
             }
         ]
+    },
+    onLoad() {
+        wx.getStorage({
+            key: 'uid',
+            success: (result) => {
+                this.setData({ uid: result.data })
+            },
+        });
+
     },
     //填写菜品名称
     nameInput(e) {
@@ -163,13 +172,14 @@ Page({
     //发布
     publish() {
         console.log('编辑的信息：', this.data)
-        let { foodName, tempFilePaths, foodDescribe, material, steps } = this.data;
+        let { foodName, tempFilePaths, foodDescribe, material, steps, uid } = this.data;
         let payload = {
             foodName: foodName,
             tempFilePaths: tempFilePaths,
             foodDescribe: foodDescribe,
             material: material,
-            steps: steps
+            steps: steps,
+            uid: uid
         }
         http.requestPost('/user/createcook', payload)
             .then(data => {

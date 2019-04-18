@@ -7,7 +7,7 @@ page {
 }
 .top {
     width:100%;
-    height: 200rpx;
+    height: 250rpx;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@ page {
 .top_bg {
     position: absolute;
     width:100%;
-    height: 200rpx;
+    height: 250rpx;
     filter: blur(120rpx);
     -webkit-filter: blur(120rpx);
     z-index: 999;
@@ -26,8 +26,8 @@ page {
     /* flex:1; */
     margin: 28rpx;
     z-index: 1001;
-    width: 100rpx;
-    height:100rpx;
+    width: 150rpx;
+    height:150rpx;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
