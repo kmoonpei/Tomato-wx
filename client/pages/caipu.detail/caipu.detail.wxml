@@ -1,9 +1,9 @@
 <!-- <view> -->
 <text class="name">{{data.foodName}}</text>
-<text class="collec">2099收藏</text>
+<text class="collec">{{collect_count}}收藏</text>
 <image class="cover_img" src="{{data.tempFilePaths}}" mode="center" />
 <text class="info_txt">{{data.foodDescribe}}</text>
-<button class="collec_btn" bind:tap="collect">收藏</button>
+<button class="collec_btn" style="background-color:{{clr_collec_btn}}" bind:tap="collect">{{collect_str}}</button>
 <text class="tit_txt">用料</text>
 <view wx:for="{{data.material}}" class="material_item">
     <text class="item_txt">{{item.name}}</text>
