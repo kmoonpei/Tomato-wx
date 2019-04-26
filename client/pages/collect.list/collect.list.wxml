@@ -1,0 +1,3 @@
+<view>
+    <component-list list="{{list}}"></component-list>
+</view>

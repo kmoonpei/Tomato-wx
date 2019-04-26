@@ -7,25 +7,29 @@
     </view>
     <text wx:if="{{delt_keyword_icon}}" bind:tap="searchHandle" class="search_txt">搜索</text>
 </view>
-<view wx:if="{{list.length==0}}">
+<view wx:if="{{list.length==0&&!delt_keyword_icon}}">
     <view wx:if="{{searched.length>0}}" class="top_wp">
         <view class="tit_wp">
             <text class="tit_txt">搜索记录</text>
             <image class="det_icon" src="../../imgs/dlet.png" bind:tap="deltSearched" />
         </view>
         <view class="item_wp">
-            <view class="item" wx:for="{{searched}}" wx:key="item" id="{{item}}" bind:tap="searchHandle">{{item}}</view>
+            <view class="item" wx:for="{{searched}}" wx:key="item" id="{{item}}" bind:tap="searchHandle">
+                {{item}}
+            </view>
         </view>
     </view>
     <view class="top_wp">
         <text class="tit_txt">搜索热点</text>
         <view class="item_wp">
-            <view class="item" wx:for="{{hot_search}}" wx:key="item" id="{{item}}" bind:tap="searchHandle">{{item}}</view>
+            <view class="item" wx:for="{{hot_search}}" wx:key="item" id="{{item}}" bind:tap="searchHandle">
+                {{item}}
+            </view>
         </view>
     </view>
 </view>
 <view wx:for="{{list}}" wx:key="item.id" class="list_item_wp" id="{{item.id}}" bind:tap="goDetail">
-    <image src="{{item.tempFilePaths}}" class="list_img"  mode="center"/>
+    <image src="{{item.tempFilePaths}}" class="list_img" mode="center" />
     <view class="info_wp">
         <text class="foodname">{{item.foodName}}</text>
         <text class="info_txt">{{item.material_string}}</text>

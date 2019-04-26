@@ -13,5 +13,7 @@
 	},
 	"appid": "wx0e1c3d3df616a660",
 	"projectname": "Tomato",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {}
 }

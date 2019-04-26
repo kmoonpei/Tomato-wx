@@ -21,6 +21,9 @@ Page({
                 })
             },
         });
-
+    },
+    goListPage(e){
+        let tag = e.currentTarget.id;
+        wx.navigateTo({ url: `../collect.list/collect.list?type=${tag}` })
     }
 })

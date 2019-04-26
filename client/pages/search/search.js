@@ -2,13 +2,19 @@
 let http = require('../../utils/http')
 Page({
     data: {
-        searched: ['红豆酥', '早餐饼', '干煸豆角', '锅巴饭', '松鼠桂鱼', '鱼香茄子'],
+        searched: [],
         hot_search: ['凉菜', '家常拌面', '红烧鱼', '回锅肉', '蒜香排骨', '纸杯蛋糕', '麻婆豆腐', '三杯鸡'],
         delt_keyword_icon: false,
         keyword: '',//搜索词
         list: [],
     },
     onReady() {
+        wx.getStorage({
+            key: 'search_words',
+            success: (result) => {
+                this.setData({ searched: result.data })
+            }
+        });
 
     },
     keywordInput(e) {
@@ -29,6 +35,10 @@ Page({
             if (!old_data.includes(keyword)) {
                 old_data.unshift(keyword);
                 this.setData({ searched: old_data })
+                wx.setStorage({
+                    key: 'search_words',
+                    data: old_data
+                })
             }
             this.getList();
         } else {
@@ -50,6 +60,10 @@ Page({
                 if (!old_data.includes(keyword)) {
                     old_data.unshift(keyword);
                     this.setData({ searched: old_data })
+                    wx.setStorage({
+                        key: 'search_words',
+                        data: old_data
+                    })
                 }
                 this.getList();
             }
@@ -61,14 +75,15 @@ Page({
     },
     getList() {
         let payload = {
-            page: 1
+            page: 1,
+            keyword:this.data.keyword
         }
-        http.requestPost('/caipu/index', payload)
+        http.requestPost('/caipu/search', payload)
             .then(data => {
                 if (data.data.code === 0) {
                     let dat = data.data.data;
-                    dat = dat.map(itm=>{
-                        let arr = itm.material.map((it)=>{return it.name});
+                    dat = dat.map(itm => {
+                        let arr = JSON.parse(itm.material).map((it) => { return it.name });
                         itm.material_string = arr.join(',');
                         return itm
                     })
@@ -78,7 +93,7 @@ Page({
                 console.log(err)
             })
     },
-    goDetail(e){
+    goDetail(e) {
         wx.navigateTo({ url: `../caipu.detail/caipu.detail?id=${e.currentTarget.id}` })
     }
 })

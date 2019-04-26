@@ -3,7 +3,7 @@
     <image class="avatar" src="{{userInfo.avatarUrl}}" />
     <text class="nickname">{{userInfo.nickName}}</text>
 </view>
-<view wx:for="{{items}}" class="item_wp">
+<view wx:for="{{items}}" class="item_wp" id="{{item.tit}}" bind:tap="goListPage">
     <image class="icon" src="{{item.icon}}" />
     <text class="item_txt">{{item.tit}}</text>
     <image class="arrow" src="../../imgs/arrows.png" />
