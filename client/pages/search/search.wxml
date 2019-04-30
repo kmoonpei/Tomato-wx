@@ -36,4 +36,5 @@
         <text class="info_txt">2990收藏</text>
     </view>
 </view>
+<component-loadmore wx:if="{{loading}}" loading="{{loading}}"></component-loadmore>
 <!-- </view> -->

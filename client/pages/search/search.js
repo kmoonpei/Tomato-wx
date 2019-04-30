@@ -7,6 +7,8 @@ Page({
         delt_keyword_icon: false,
         keyword: '',//搜索词
         list: [],
+        page_now: 1,
+        loading: false,//加载动画
     },
     onReady() {
         wx.getStorage({
@@ -17,13 +19,21 @@ Page({
         });
 
     },
+    onReachBottom() {
+        let { page_now, list } = this.data;
+        if (page_now * 10 == list.length) {
+            this.setData({ page_now: ++this.data.page_now, loading: true }, () => { this.getList() });
+        }else{
+            
+        }
+    },
     keywordInput(e) {
         // console.log('e:',e)
         let keyword = e.detail.value.trim();
         this.setData({ delt_keyword_icon: true, keyword: keyword });
     },
     deletKeyword() {
-        this.setData({ keyword: '', delt_keyword_icon: false, list: [] })
+        this.setData({ keyword: '', delt_keyword_icon: false, list: [], page_now: 1 })
     },
     searchHandle(e) {
         console.log('e:', e)
@@ -75,8 +85,8 @@ Page({
     },
     getList() {
         let payload = {
-            page: 1,
-            keyword:this.data.keyword
+            page: this.data.page_now,
+            keyword: this.data.keyword
         }
         http.requestPost('/caipu/search', payload)
             .then(data => {
@@ -87,7 +97,9 @@ Page({
                         itm.material_string = arr.join(',');
                         return itm
                     })
-                    this.setData({ list: dat })
+                    let old_list = this.data.list;
+                    dat = old_list.concat(dat);
+                    this.setData({ list: dat, loading: false })
                 }
             }).catch(err => {
                 console.log(err)

@@ -1,0 +1,4 @@
+<view class="load_more">
+    <view class="load_loading"></view>
+    <view class="load-tips">{{str}}</view>
+</view>
